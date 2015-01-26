@@ -1,4 +1,4 @@
-Conway's Game of Life
+Refactored from [my previous version of Conway's Game of Life](https://github.com/trikitrok/GameOfLifeJava)
 =========================
 
 The game can be extended by:
