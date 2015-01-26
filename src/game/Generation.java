@@ -4,7 +4,6 @@ public class Generation {
 
     private Rules rules;
     private Cells cells;
-    private Neighbors neighbors;
 
     public Generation(Rules rules, Cell... cells) {
         this(rules, new Cells(cells));
@@ -13,12 +12,12 @@ public class Generation {
     public Generation(Rules rules, Cells cells) {
         this.rules = rules;
         this.cells = cells;
-        this.neighbors = new Neighbors(cells);
     }
 
     public Generation produceNextGeneration() {
         Cells nextGeneration = new Cells();
-        for (Cell neighbor : neighbors) {
+
+        for (Cell neighbor : cells.getNeighbors()) {
             if (inNextGeneration(neighbor)) {
                 nextGeneration.add(neighbor);
             }

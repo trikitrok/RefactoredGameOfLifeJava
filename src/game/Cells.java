@@ -16,6 +16,18 @@ public class Cells implements Iterable<Cell> {
         this.cells = new ArrayList<Cell>();
     }
 
+    public Cells getNeighbors() {
+        Cells neighbors = new Cells();
+
+        for (Cell cell : this.cells) {
+            for (Cell neighbor : cell.neighbors()) {
+                neighbors.add(neighbor);
+            }
+        }
+
+        return neighbors;
+    }
+
     public boolean empty() {
         return cells.isEmpty();
     }
