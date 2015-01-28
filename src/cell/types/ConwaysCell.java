@@ -1,11 +1,15 @@
 package cell.types;
 
+import game.Cell;
 import game.Cells;
 
-public class ConwaysCell extends Cell2D {
+public class ConwaysCell implements Cell {
+    protected int i;
+    protected int j;
 
     public ConwaysCell(int i, int j) {
-        super(i, j);
+        this.i = i;
+        this.j = j;
     }
 
     public Cells neighbors() {
@@ -18,5 +22,21 @@ public class ConwaysCell extends Cell2D {
             }
         }
         return neighbors;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        ConwaysCell other = (ConwaysCell) obj;
+        if (i != other.i)
+            return false;
+        if (j != other.j)
+            return false;
+        return true;
     }
 }
